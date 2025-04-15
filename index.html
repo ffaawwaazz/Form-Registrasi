@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Form Registrasi Mahasiswa & Pencarian Kode Pos</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- Form Registrasi Mahasiswa -->
+  <div class="container" id="registration-form">
+    <h2>Form Registrasi Mahasiswa</h2>
+    <div class="form-group">
+      <label for="nama">Nama Mahasiswa</label>
+      <input type="text" id="nama" placeholder="Masukkan nama"/>
+      <div class="suggestions" id="nama-suggestions"></div>
+    </div>
+    <div class="form-group">
+      <label for="nim">NRP</label>
+      <input type="number" id="nim" placeholder="Masukkan NIM"/>
+    </div>
+    <div class="form-group">
+      <label for="jurusan">Jurusan</label>
+      <select id="jurusan">
+        <option value="">Pilih Jurusan</option>
+        <option value="Rekayasa Kecerdasan Artifisial">Rekayasa Kecerdasan Artifisial</option>
+        <option value="Teknik Informatika">Teknik Informatika</option>
+        <option value="Teknik Elektro">Teknik Elektro</option>
+        <option value="Teknik Mesin">Teknik Mesin</option>
+        <option value="Arsitektur">Arsitektur</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="matkul">Mata Kuliah</label>
+      <input type="text" id="matkul" placeholder="Masukkan nama mata kuliah"/>
+    </div>
+    <div class="form-group">
+      <label for="dosen">Nama Dosen</label>
+      <input type="text" id="dosen" placeholder="Masukkan nama dosen"/>
+    </div>
+    <div id="error-message" style="color: red; display: none;">Semua field wajib diisi!</div>
+    <button onclick="submitForm()">Submit</button>
+  </div>
+
+  <!-- Form Pencarian Kode Pos -->
+  <div class="container" id="postcode-search" style="display:none;">
+    <h2>Pencarian Kode Pos</h2>
+    <div class="form-group">
+      <label for="provinsi">Provinsi</label>
+      <select id="provinsi">
+        <option value="">Pilih Provinsi</option>
+        <option value="Jakarta">Jakarta</option>
+        <option value="Surabaya">Surabaya</option>
+        <option value="Bandung">Bandung</option>
+        <option value="Medan">Medan</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="kabupaten">Kabupaten/Kota</label>
+      <select id="kabupaten">
+        <option value="">Pilih Kabupaten/Kota</option>
+        <option value="Sidoarjo">Sidoarjo</option>
+        <option value="Jakarta">Jakarta</option>
+        <option value="Surabaya">Surabaya</option>
+        <option value="Bandung">Bandung</option>
+        <option value="Medan">Medan</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="kecamatan">Kecamatan</label>
+      <select id="kecamatan">
+        <option value="">Pilih Kecamatan</option>
+      </select>
+    </div>
+    <button onclick="searchPostalCode()">Cari Kode Pos</button>
+    <div id="result" style="display:none;">
+      <h3>Hasil Pencarian:</h3>
+      <p>Kode Pos: <span id="kode-pos"></span></p>
+      <p>Informasi Daerah: <span id="informasi-daerah"></span></p>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
